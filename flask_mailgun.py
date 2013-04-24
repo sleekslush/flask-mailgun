@@ -15,6 +15,10 @@ class Mailgun(object):
         if not self.mailgun_api:
             raise ValueError('A valid app instance has not been provided')
 
+        default_from = self.app.config.get('MAILGUN_DEFAULT_FROM')
+        if default_from:
+            kwargs.setdefault('from', default_from)
+
         return self.mailgun_api.send_email(**kwargs)
 
 class MailgunApi(object):
