@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Mailgun',
-    version='0.3',
+    version='0.4',
     url='http://github.com/sleekslush/flask-mailgun',
     license='BSD',
     author='Craig Slusher',

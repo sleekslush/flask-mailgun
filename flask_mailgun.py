@@ -1,6 +1,7 @@
 import requests
 
 class Mailgun(object):
+    app = None
     mailgun_api = None
 
     def __init__(self, app=None):
@@ -10,6 +11,7 @@ class Mailgun(object):
     def init_app(self, app):
         self.mailgun_api = MailgunApi(app.config['MAILGUN_DOMAIN'],
                 app.config['MAILGUN_API_KEY'])
+        self.app = app
 
     def send_email(self, **kwargs):
         if not self.mailgun_api:
